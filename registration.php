@@ -40,50 +40,143 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register</title>
-
-   <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-
+   <title>OSFA Website Register</title>
+   <link rel="stylesheet" type="text/css" href="css/login_style.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+   <img class="wave" src="images/wave.png">
+   <div class = container>
+      <div class = img>
+         <img src="images/bg.png" />
+      </div>
 
-        <div class = left_login>
-           <img class = up src="images/UP2.jpg" />
-        </div>
-
-        <div class = right_login>
-        <?php
-           if(isset($message)){
+      <div class = login-content>
+         <?php
+            if(isset($message)){
                foreach($message as $message){
-                   echo '
-                   <div class="message">
-                   <span>'.$message.'</span>
-                   <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-                   </div>
-                   ';
+                     echo '
+                     <div class="message">
+                     <span>'.$message.'</span>
+                     <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+                     </div>
+                     ';
                }
-           }
-        ?>
+            }
+         ?>
 
-        <section class="form_container">
-            <form action="" method="post">
-                <img src ="images/fm.png" class ="logo"/>
-                <h3>REGISTER NOW</h3>
-                <input type="text" name="lastname" class="box1" placeholder="enter your last name" required>
-                <input type="text" name="givenname" class="box1" placeholder="enter your given name" required>
-                <input type="text" name="middlename" class="box1" placeholder="enter your middle name" required>
-                <input type="username" name="username" class="box1" placeholder="enter your username" required>
-                <input type="password" name="password" class="box1" placeholder="enter your password" required>
-                <input type="password" name="cpassword" class="box1" placeholder="confirm your password" required>
-                <input type="submit" class="btn1" name="submit" value="REGISTER">
-                <p class="reg">already have an account? <a href="login.php">login now</a></p>
-            </form>
-            </section>
-        </div>
+         <form action="" method="post">
+            <h2 class="title">UPB Baguio OSFA</h2>
+            <img src ="images/uplogo.png" class ="logo"/>
+            <h2 class="title">Registration Form</h2>
+
+            <div class="input-div one">
+               <div class="i">
+                  <i class="fas fa-user"></i>
+               </div>
+               <div class="div">
+                  <input type="text" name="lastname" placeholder="Enter your Last Name" required>
+               </div>
+            </div>
+
+            <div class="input-div one">
+               <div class="i">
+                  <i class="fas fa-user"></i>
+               </div>
+               <div class="div">
+                  <input type="text" name="givenname" placeholder="Enter your Given Name" required>
+               </div>
+            </div>
+
+            <div class="input-div one">
+               <div class="i">
+                  <i class="fas fa-user"></i>
+               </div>
+               <div class="div">
+                  <input type="text" name="middlename" placeholder="Enter your Middle Name" required>
+               </div>
+            </div>
+
+            <div class="input-div one">
+               <div class="i">
+                  <i class="fas fa-user"></i>
+               </div>
+               <div class="div">
+                  <input type="username" name ="username" placeholder="Enter desired Username" required>
+               </div>
+            </div>
+
+            <div class="input-div one">
+               <div class="i">
+                  <i class="fas fa-user"></i>
+               </div>
+               <div class="div">
+                  <input type="upmail" name ="upmail" placeholder="Enter UPB-issued UPMail" required>
+               </div>
+            </div>
+            <p>Enter desired answers when retrieving OSFA Website account password.</p>
+            <p>(Enter in UPPER CASE)</p>
+            <div class="input-div one">
+               <div class="i">
+                  <i class="fas fa-lock"></i>
+               </div>
+               <div class="div">
+                  <input type="EDIT" name ="EDIT" placeholder="Enter secret word/s" required>
+               </div>
+            </div>
+
+            <div class="input-div one">
+               <div class="i">
+                  <i class="fas fa-lock"></i>
+               </div>
+               <div class="div">
+                  <input type="EDIT" name ="EDIT" placeholder="What is your favorite thing?" required>
+               </div>
+            </div>
+
+            <div class="input-div one">
+               <div class="i">
+                  <i class="fas fa-lock"></i>
+               </div>
+               <div class="div">
+                  <input type="EDIT" name ="EDIT" placeholder="Who is your favorite person?" required>
+               </div>
+            </div>
+
+            <div class="input-div one">
+               <div class="i">
+                  <i class="fas fa-lock"></i>
+               </div>
+               <div class="div">
+                  <input type="EDIT" name ="EDIT" placeholder="When is your favorite (mm/dd/yyyy)?" required>
+               </div>
+            </div>
+
+            <div class="input-div pass">
+               <div class="i"> 
+                     <i class="fas fa-lock"></i>
+               </div>
+               <div class="div">
+                     <input type="password" name ="password" placeholder="Enter desired Password" required>
+               </div>
+            </div>
+
+            <div class="input-div pass">
+               <div class="i"> 
+                     <i class="fas fa-lock"></i>
+               </div>
+               <div class="div">
+                     <input type="password" name ="cpassword" placeholder="Confirm desired Password" required>
+               </div>
+            </div>
+            <input type="submit" class="btn" name ="submit" value="Register">
+            <a href="login.php">Already have an account?</a>
+         </form>
+      </div>
+   </div>
+   <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
   
