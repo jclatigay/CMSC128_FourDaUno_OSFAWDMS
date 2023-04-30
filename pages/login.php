@@ -32,8 +32,12 @@ if(isset($_POST['submit'])){
 <!DOCTYPE html>
 <html lang ="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>OSFA Website Login</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="css/login_style.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +47,7 @@ if(isset($_POST['submit'])){
     <img class="wave" src="images/wave.png">
     <div class = container>
         <div class = img>
-            <img src="images/bg.svg" />
+            <img src="images/bg.png" />
         </div>
 
         <div class = login-content>
@@ -62,14 +66,14 @@ if(isset($_POST['submit'])){
 
             <form action="" method ="post">
                 <h2 class="title">UPB Baguio OSFA</h2>
-                <img src ="images/fm.png" class ="logo"/>
+                <img src ="images/uplogo.png" class ="logo"/>
                 <h2 class="title">Welcome</h2>
                     <div class="input-div one">
                         <div class="i">
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="div">
-                            <input type="username" name ="username" Placeholder="Enter Registered Username" required>
+                            <input type="username" name ="username" placeholder="Enter Registered Username" required>
                         </div>
                     </div>
                     <div class="input-div pass">
@@ -77,7 +81,7 @@ if(isset($_POST['submit'])){
                             <i class="fas fa-lock"></i>
                         </div>
                         <div class="div">
-                            <input type="password" name ="password" Placeholder="Enter Registered Password" required>
+                            <input type="password" name ="password" placeholder="Enter Registered Password" required>
                         </div>
                     </div>
                 <a href="#">Forgot Password?</a>
