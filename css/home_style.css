@@ -82,6 +82,11 @@ section{
    font-size: 2.5rem;
    color:var(--maroon);
 }
+.header .flex .user{
+   font-size: 2.3rem;
+   font-family: cursive;
+   color:var(--maroon);
+}
 
 .header .flex .navbar ul{
    list-style: none;
@@ -147,7 +152,7 @@ section{
    box-shadow: var(--box-shadow);
    padding:2rem;
    border-radius: .5rem;
-   width: 33rem;
+   width: 38rem;
    display: none;
    animation: fadeIn .2s linear;
 }
@@ -185,13 +190,18 @@ section{
 }
 
 .home{
-    min-height : 90vh;
-    background : url(../images/cover.jpeg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   min-height: 90vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.home-bg{
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   z-index: -1;
 }
 .home .content{
     text-align: center;
@@ -199,14 +209,16 @@ section{
 .home .content h3{
     text-transform: uppercase;
     color: var(--white);
-    font-size: 5.5rem;
+    -webkit-text-stroke: 1.5px black;
+    font-size: 6.5rem;
 }
 .home .content h4{
-    max-width: 80rem;
+    max-width: 90rem;
     margin: 1rem auto;
     line-height: 2;
     font-size: 4rem;
     color: var(--white);
+    -webkit-text-stroke: 1.5px black;
 }
 .home .content .btn{
     width: 100%;
@@ -430,6 +442,7 @@ section{
    text-align: center;
    color: #fff;
    font-size: medium;
+   box-shadow: var(--box-shadow);
 }
 
 .function .function-bar .funbar .function-box:hover{
@@ -457,10 +470,10 @@ section{
    display: block;
    margin-left: auto;
    margin-right: auto;
-   background-color: rgb(237, 234, 234);
+   background : url(../images/cover1.jpeg) no-repeat;
 }
 .dash-contain .dash{
-   width: 95%;
+   width: 99%;
 }
 .dash tr th{
    border: 3px solid;
@@ -468,12 +481,10 @@ section{
    width: 20%;
    font-size: x-large;
 }
-.dash-contain .dash .obleImg{
-   border-color: rgb(237, 234, 234);
-}
+
 .dash-contain .dash .obleImg .oblation{
-   width : 60%;
-   height : 100%;
+   width : 200%;
+   height : 5%;
    margin-left: auto;
    margin-right: auto;
    display: block;
