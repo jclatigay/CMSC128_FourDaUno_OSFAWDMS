@@ -4,20 +4,43 @@
 
 if(isset($_POST['submit'])){
 
+   $filter_id = filter_var($_POST['id'], FILTER_SANITIZE_STRING);
+   $id = mysqli_real_escape_string($conn, $filter_id);
+
    $filter_lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_STRING);
    $lastname = mysqli_real_escape_string($conn, $filter_lastname);
+
    $filter_givenname = filter_var($_POST['givenname'], FILTER_SANITIZE_STRING);
    $givenname = mysqli_real_escape_string($conn, $filter_givenname);
+
    $filter_middlename = filter_var($_POST['middlename'], FILTER_SANITIZE_STRING);
    $middlename = mysqli_real_escape_string($conn, $filter_middlename);
+
    $filter_username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
    $username = mysqli_real_escape_string($conn, $filter_username);
+
+   $filter_upmail = filter_var($_POST['upmail'], FILTER_SANITIZE_STRING);
+   $upmail = mysqli_real_escape_string($conn, $filter_upmail);
+
+   $filter_secretword = filter_var($_POST['secretword'], FILTER_SANITIZE_STRING);
+   $secretword = mysqli_real_escape_string($conn, $filter_secretword);
+
+   $filter_favething = filter_var($_POST['favething'], FILTER_SANITIZE_STRING);
+   $favething = mysqli_real_escape_string($conn, $filter_favething);
+
+   $filter_faveperson = filter_var($_POST['faveperson'], FILTER_SANITIZE_STRING);
+   $faveperson = mysqli_real_escape_string($conn, $filter_faveperson);
+
+   $filter_favedate = filter_var($_POST['favedate'], FILTER_SANITIZE_STRING);
+   $favedate = mysqli_real_escape_string($conn, $filter_favedate);   
+
    $filter_password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
    $password = mysqli_real_escape_string($conn, $filter_password);
+
    $filter_cpassword = filter_var($_POST['cpassword'], FILTER_SANITIZE_STRING);
    $cpassword = mysqli_real_escape_string($conn, $filter_cpassword);
 
-   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE username = '$username'") or die('query failed');
+   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE Student_ID = '$id'") or die('query failed');
 
    if(mysqli_num_rows($select_users) > 0){
       $message[] = 'user already exist!';
