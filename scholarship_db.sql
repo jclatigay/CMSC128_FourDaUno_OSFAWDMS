@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2023 at 01:15 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: May 02, 2023 at 05:09 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `admin` (
   `lastname` varchar(100) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
@@ -42,7 +42,9 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `givenname`, `middlename`, `lastname`, `username`, `password`) VALUES
 (1001, 'Jester', 'Mortero', 'Bustamante', 'admin', 'jes'),
-(1002, 'Rosseau Nilo', 'Gamama', 'Maamor', 'rg', 'password');
+(1002, 'Rosseau Nilo', 'Gamama', 'Maamor', 'rg', 'password'),
+(1003, 'John Isaac', 'Cura', 'Latigay', 'john', 'admin'),
+(1004, 'David Andre', 'S', 'Barredo', 'david', 'admin');
 
 -- --------------------------------------------------------
 
@@ -55,7 +57,7 @@ CREATE TABLE `course_info` (
   `college` varchar(50) NOT NULL,
   `course` varchar(100) NOT NULL,
   `year_level` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `course_info`
@@ -86,7 +88,7 @@ CREATE TABLE `other_grants` (
   `other_grant_relperiod` varchar(30) NOT NULL,
   `other_grant_start` year(4) DEFAULT NULL,
   `other_grant_end` year(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `other_grants`
@@ -115,7 +117,7 @@ CREATE TABLE `relative_dependent_occupation` (
   `relative_name` varchar(50) NOT NULL,
   `relative_occupation` varchar(50) NOT NULL,
   `rel_annual_gross_salary` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `relative_dependent_occupation`
@@ -146,7 +148,7 @@ CREATE TABLE `scholarship_info` (
   `release_period` varchar(20) NOT NULL,
   `period_start` year(4) NOT NULL,
   `period_end` year(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `scholarship_info`
@@ -183,7 +185,7 @@ CREATE TABLE `scholar_basic_info` (
   `present_address` varchar(100) NOT NULL,
   `email_address` varchar(100) NOT NULL,
   `mobile_number` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `scholar_basic_info`
@@ -214,7 +216,7 @@ CREATE TABLE `studparents_occupation` (
   `mother_name` varchar(50) NOT NULL,
   `mother_occupation` varchar(50) NOT NULL,
   `annual_gross_salary` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `studparents_occupation`
@@ -243,7 +245,7 @@ CREATE TABLE `stud_allowance_dependency` (
   `parent_dependent` varchar(3) NOT NULL,
   `relative_dependent` varchar(3) NOT NULL,
   `employment_dependent` varchar(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `stud_allowance_dependency`
@@ -276,7 +278,7 @@ CREATE TABLE `stud_employ_status` (
   `employer_name` varchar(50) NOT NULL,
   `company_name` varchar(30) NOT NULL,
   `work_address` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `stud_employ_status`
@@ -302,21 +304,27 @@ INSERT INTO `stud_employ_status` (`Student_ID`, `employ_status`, `occupation`, `
 --
 
 CREATE TABLE `users` (
-  `id` int(5) NOT NULL,
+  `Student_ID` int(10) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `givenname` varchar(30) NOT NULL,
   `middlename` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
+  `upmail` varchar(30) NOT NULL,
+  `secretword` varchar(30) NOT NULL,
+  `favething` varchar(30) NOT NULL,
+  `faveperson` varchar(30) NOT NULL,
+  `favedate` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `lastname`, `givenname`, `middlename`, `username`, `password`) VALUES
-(1001, 'Bustamante', 'Jester', 'Mortero', 'admin', 'jes'),
-(1003, 'Maamor', 'Rosseau Nilo', 'Gamama', 'rg', 'password');
+INSERT INTO `users` (`Student_ID`, `lastname`, `givenname`, `middlename`, `username`, `upmail`, `secretword`, `favething`, `faveperson`, `favedate`, `password`) VALUES
+(20184526, 'Diana', 'Jane', 'Rose', 'rose', 'jdrose@up.edu.ph', 'Rose', 'Rose', 'Rose', '2010-05-25', 'rose'),
+(20190463, 'Doe', 'John', 'The', 'doe', 'jtdoe@up.edu.ph', 'Doe', 'Doe', 'Doe', '2014-07-15', 'doe'),
+(202001354, 'Latigay', 'John Isaac', 'Cura', 'john', 'jclatigay@up.edu.ph', 'Secret', 'Thing', 'Person', '2001-04-06', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -380,7 +388,7 @@ ALTER TABLE `stud_employ_status`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`Student_ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -390,13 +398,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1005;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
