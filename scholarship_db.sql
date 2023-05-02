@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2022 at 10:32 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: May 01, 2023 at 01:15 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,13 +24,36 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(4) NOT NULL,
+  `givenname` varchar(100) NOT NULL,
+  `middlename` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `givenname`, `middlename`, `lastname`, `username`, `password`) VALUES
+(1001, 'Jester', 'Mortero', 'Bustamante', 'admin', 'jes'),
+(1002, 'Rosseau Nilo', 'Gamama', 'Maamor', 'rg', 'password');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `course_info`
 --
 
 CREATE TABLE `course_info` (
   `Student_ID` int(10) NOT NULL,
-  `college` varchar(30) NOT NULL,
-  `course` varchar(50) NOT NULL,
+  `college` varchar(50) NOT NULL,
+  `course` varchar(100) NOT NULL,
   `year_level` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -48,8 +71,7 @@ INSERT INTO `course_info` (`Student_ID`, `college`, `course`, `year_level`) VALU
 (20202472, 'College of Science', 'BS Biology', 2),
 (20202864, 'College of Science', 'BS Physics', 4),
 (20206754, 'College of Social Science', 'BA Social Science major in History', 1),
-(20212034, 'College of Science', 'BS Mathematics', 1),
-(20226518, 'College of Science', 'BS Computer Science', 1);
+(20212034, 'College of Science', 'BS Mathematics', 1);
 
 -- --------------------------------------------------------
 
@@ -62,8 +84,8 @@ CREATE TABLE `other_grants` (
   `other_grant_source` varchar(50) NOT NULL,
   `other_grant_type` varchar(30) NOT NULL,
   `other_grant_relperiod` varchar(30) NOT NULL,
-  `other_grant_start` year(4) NOT NULL,
-  `other_grant_end` year(4) NOT NULL
+  `other_grant_start` year(4) DEFAULT NULL,
+  `other_grant_end` year(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -71,7 +93,16 @@ CREATE TABLE `other_grants` (
 --
 
 INSERT INTO `other_grants` (`Student_ID`, `other_grant_source`, `other_grant_type`, `other_grant_relperiod`, `other_grant_start`, `other_grant_end`) VALUES
-(20201011, 'SKOO Foundation', 'Private', 'Semestral', 2022, 2024);
+(20184526, '', '', '', 0000, 0000),
+(20190463, '', '', '', 0000, 0000),
+(20201011, 'SKOO Foundation', 'Private', 'Semestral', 2022, 2024),
+(20201022, '', '', '', NULL, NULL),
+(20201044, '', '', '', NULL, NULL),
+(20201347, '', '', '', NULL, NULL),
+(20202472, '', '', '', NULL, NULL),
+(20202864, '', '', '', NULL, NULL),
+(20206754, '', '', '', NULL, NULL),
+(20212034, '', '', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -91,8 +122,16 @@ CREATE TABLE `relative_dependent_occupation` (
 --
 
 INSERT INTO `relative_dependent_occupation` (`Student_ID`, `relative_name`, `relative_occupation`, `rel_annual_gross_salary`) VALUES
-(20212034, 'Watis Wong', 'Retired', 144000),
-(20226518, 'Cucu Martin', 'Office Clerk', 150000);
+(20184526, '', '', 0),
+(20190463, '', '', 0),
+(20201011, '', '', 0),
+(20201022, '', '', 0),
+(20201044, '', '', 0),
+(20201347, '', '', 0),
+(20202472, '', '', 0),
+(20202864, '', '', 0),
+(20206754, '', '', 0),
+(20212034, 'Watis Wong', 'Retired', 144000);
 
 -- --------------------------------------------------------
 
@@ -123,8 +162,7 @@ INSERT INTO `scholarship_info` (`Student_ID`, `scholarship_source`, `scholarship
 (20202472, 'DOST', 'Government', 'Semestral', 2021, 2025),
 (20202864, 'DOST', 'Government', 'Semestral', 2019, 2022),
 (20206754, 'CHED', 'Government', 'Semestral', 2022, 2026),
-(20212034, 'DOST', 'Government', 'Semestral', 2021, 2026),
-(20226518, 'DOST', 'Government', 'Semestral', 2022, 2026);
+(20212034, 'DOST', 'Government', 'Semestral', 2021, 2026);
 
 -- --------------------------------------------------------
 
@@ -161,8 +199,7 @@ INSERT INTO `scholar_basic_info` (`Student_ID`, `last_name`, `given_name`, `midd
 (20202472, 'Mortero', 'Jes', 'Lucina', 'Male', '2002-10-02', 'Filipino', 'Single', 'Aurora Hills, Baguio City', 'Aurora Hills, Baguio City', 'jesmortero@gmail.com', '09129356789'),
 (20202864, 'Peter', 'Simon', 'Park', 'Male', '2001-04-12', 'Filipino', 'Single', 'Magsaysay Ave, Baguio City', 'Magsaysay Ave, Baguio City', 'peterpark@gmail.com', '09468128496'),
 (20206754, 'Nelmida', 'Junel', 'Pascua', 'Male', '2002-06-28', 'Filipino', 'Single', 'Mirador Hill, Baguio City', 'Mirador Hill, Baguio City', 'junelpnelmida@gmail.com', '09916452098'),
-(20212034, 'Wong', 'Sam', 'Ting', 'Female', '2003-04-26', 'Filipino', 'Single', '#10 Dangda Building, Baguio City', '#12 Ting St, China Village, Quezon City', 'Samtwong@gmail.com', '09675428345'),
-(20226518, 'Dalisay', 'Cardo', 'Coco', 'Male', '2003-11-30', 'Filipino', 'Single', 'Legarda, Baguio City', 'Legarda, Baguio City', 'cardodalisay@gmail.com', '09651654861');
+(20212034, 'Wong', 'Sam', 'Ting', 'Female', '2003-04-26', 'Filipino', 'Single', '#10 Dangda Building, Baguio City', '#12 Ting St, China Village, Quezon City', 'Samtwong@gmail.com', '09675428345');
 
 -- --------------------------------------------------------
 
@@ -184,7 +221,7 @@ CREATE TABLE `studparents_occupation` (
 --
 
 INSERT INTO `studparents_occupation` (`Student_ID`, `father_name`, `father_occupation`, `mother_name`, `mother_occupation`, `annual_gross_salary`) VALUES
-(20184526, 'Joseph Smith', 'Businessperson', 'Rose Smith', 'Businessperson', 400000),
+(20184526, 'Joseph Smiths', 'Businessperson', 'Rose Smith', 'Businessperson', 400000),
 (20190463, 'Johnny Doe', 'Firefighter', 'Johanna Doe', 'Nurse', 250000),
 (20201011, 'Juano Dela Cruz', 'Farmer', 'Juanita Dela Cruz', 'Farmer', 200000),
 (20201022, 'Benner Haveuben', 'Policeman', 'Lota Haveuben', 'Policewoman', 350000),
@@ -193,8 +230,7 @@ INSERT INTO `studparents_occupation` (`Student_ID`, `father_name`, `father_occup
 (20202472, 'Wilson Mortero', 'Carpenter', 'Dahlia Mortero', 'Secretariat', 190000),
 (20202864, 'Rizal Park', 'Poet', 'Jennifer Park', 'Entrepreneur', 500000),
 (20206754, 'Jun Nelmida', 'Entrepreneur', 'Edrianna Nelmida', 'Barangay Chairperson', 200000),
-(20212034, 'Man Wong', 'Retired', 'Noting Wong', 'Retired', 144000),
-(20226518, 'Coco Martin', 'Artist', 'Alyanna Dela Cruz', 'Businessperson', 500000);
+(20212034, 'Man Wong', 'Retired', 'Noting Wong', 'Retired', 144000);
 
 -- --------------------------------------------------------
 
@@ -223,8 +259,7 @@ INSERT INTO `stud_allowance_dependency` (`Student_ID`, `parent_dependent`, `rela
 (20202472, 'Yes', 'No', 'No'),
 (20202864, 'Yes', 'No', 'No'),
 (20206754, 'Yes', 'No', 'No'),
-(20212034, 'Yes', 'Yes', 'No'),
-(20226518, 'Yes', 'Yes', 'No');
+(20212034, 'Yes', 'Yes', 'No');
 
 -- --------------------------------------------------------
 
@@ -248,15 +283,15 @@ CREATE TABLE `stud_employ_status` (
 --
 
 INSERT INTO `stud_employ_status` (`Student_ID`, `employ_status`, `occupation`, `shift_length`, `stud_annual_gross_salary`, `employer_name`, `company_name`, `work_address`) VALUES
-(20184526, 'Employed', 'Saleslady', 'Part-time', 100, 'Ei Sy', 'SMIC', 'SM Baguio'),
+(20184526, 'Employed', 'Saleslady', 'Part-time', 100000, 'Ei Sy', 'SMIC', 'SM Baguio'),
 (20190463, 'Unemployed', 'Student', '', 0, '', '', ''),
+(20200535, 'notemployed', 'Student', 'full', 0, '', '', ''),
 (20201011, 'Unemployed', 'Student', '', 0, '', '', ''),
 (20201022, 'Unemployed', 'Student', '', 0, '', '', ''),
 (20201044, 'Employed', 'Accountant', 'Part-time', 120000, 'Tim Raw', 'Applet, Inc', 'Applet Headquarters, General Road, Baguio CIty'),
 (20201347, 'Unemployed', 'Student', '', 0, '', '', ''),
 (20202472, 'Unemployed', 'Student', '', 0, '', '', ''),
-(20202864, 'Self-Employed', 'Freelance', 'Part-time', 150, 'Simon Peter', '', 'Magsaysay Ave, Baguio City'),
-(20206518, 'Unemployed', 'Student', '', 0, '', '', ''),
+(20202864, 'Self-Employed', 'Freelance', 'Part-time', 150000, 'Simon Peter', '', 'Magsaysay Ave, Baguio City'),
 (20206754, 'Unemployed', 'Student', '', 0, '', '', ''),
 (20212034, 'Unemployed', 'Student', '', 0, '', '', '');
 
@@ -272,21 +307,26 @@ CREATE TABLE `users` (
   `givenname` varchar(30) NOT NULL,
   `middlename` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `usertype` varchar(5) NOT NULL DEFAULT 'admin'
+  `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `lastname`, `givenname`, `middlename`, `username`, `password`, `usertype`) VALUES
-(1001, 'Bustamante', 'Jester', 'Mortero', 'admin', 'jes', 'admin'),
-(1003, 'Maamor', 'Rosseau Nilo', 'Gamama', 'rg', 'password', 'admin');
+INSERT INTO `users` (`id`, `lastname`, `givenname`, `middlename`, `username`, `password`) VALUES
+(1001, 'Bustamante', 'Jester', 'Mortero', 'admin', 'jes'),
+(1003, 'Maamor', 'Rosseau Nilo', 'Gamama', 'rg', 'password');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `course_info`
@@ -345,6 +385,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
 
 --
 -- AUTO_INCREMENT for table `users`
