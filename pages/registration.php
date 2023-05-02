@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
       }else{
          mysqli_query($conn, "INSERT INTO `users`(lastname, givenname, middlename, username, password) VALUES('$lastname', '$givenname', '$middlename', '$username', '$password')") or die('query failed');
          $message[] = 'registered successfully!';
-         header('location:login.php');
+         header('location:user_login.php');
       }
    }
 }
@@ -40,17 +40,17 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>OSFA Website Register</title>
-   <link rel="stylesheet" type="text/css" href="css/login_style.css">
+   <title>OSFA Website Registration</title>
+   <link rel="stylesheet" type="text/css" href="../css/login_style.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-   <img class="wave" src="images/wave.png">
+   <img class="wave" src="../images/wave.png">
    <div class = container>
       <div class = img>
-         <img src="images/bg.png" />
+         <img src="../images/bg.png" />
       </div>
 
       <div class = login-content>
@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
 
          <form action="" method="post">
             <h2 class="title">UPB Baguio OSFA</h2>
-            <img src ="images/uplogo.png" class ="logo"/>
+            <img src ="../images/uplogo.png" class ="logo"/>
             <h2 class="title">Registration Form</h2>
 
             <div class="input-div one">
@@ -172,11 +172,10 @@ if(isset($_POST['submit'])){
                </div>
             </div>
             <input type="submit" class="btn" name ="submit" value="Register">
-            <a href="login.php">Already have an account?</a>
+            <a href="user_login.php">Already have an account?</a>
          </form>
       </div>
    </div>
-   <script type="text/javascript" src="js/script.js"></script>
+   <script type="text/javascript" src="../js/script.js"></script>
 </body>
 </html>
-  
