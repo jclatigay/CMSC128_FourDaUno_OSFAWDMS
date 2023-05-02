@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 
         $row = mysqli_fetch_assoc($select_users);
 
-        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['user_id'] = $row['Student_ID'];
         $_SESSION['user_lastname'] = $row['lastname'];
         $_SESSION['user_givenname'] = $row['givenname'];
         $_SESSION['user_middlename'] = $row['middlename'];
